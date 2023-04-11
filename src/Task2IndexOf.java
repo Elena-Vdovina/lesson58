@@ -7,11 +7,27 @@ public class Task2IndexOf {
 // Перепишите алгоритм бинарного поиска элемента в отсортированном по возрастанию списке
 // целых чисел (см. урок 56, задача 2) с использованием рекурсии.
 
+  public static int indexOfRec(ArrayList<Integer> numbers, int target, int left, int right) {
+    int mid = (left + right) / 2;
+    if (numbers.get(mid) == target) {
+      return mid;
+    }
+    if (numbers.get(mid) < target) {
+      left = mid + 1;
+
+    } else {
+      right = mid;
+    }
+    mid = indexOfRec(numbers, target, left, right);
+    return mid;
+  }
+
 
   /**
    * Поиск числа target в списке numbers
+   *
    * @param numbers отсортированный по возрастанию список различных целых чисел
-   * @param target число, которое необходимо найти
+   * @param target  число, которое необходимо найти
    * @return индекс числа target в списке numbers или -1, если число не найдено
    */
   public static int indexOf(ArrayList<Integer> numbers, int target) { // O(1) по памяти
@@ -58,6 +74,7 @@ public class Task2IndexOf {
     int target = Integer.parseInt(br.readLine());
 
     System.out.println("Результат: " + indexOf(numbers, target));
+    System.out.println("Результат: " + indexOfRec(numbers, target, 0, numbers.size()));
   }
 }
 
