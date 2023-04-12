@@ -4,7 +4,7 @@ public class Task2FibonacciOptim {
 
 // Оптимизируйте алгоритм для вычисления чисел Фибоначчи (см. этот урок, задача 2),
 // оцените временну́ю и пространственную эффективность.
-  public static void main(String[] args) {
+  public static void main(String[] args) {          // O(n) - time, O(n) - space ?
     ArrayList<Integer> numbers = new ArrayList<>();
     numbers.add(1);
     numbers.add(1);
